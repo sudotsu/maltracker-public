@@ -27,4 +27,9 @@ describe("incident data", () => {
   it("records when it was last reviewed", () => {
     expect(incident.lastReviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
+
+  it("live count matches the sites marked live", () => {
+    const live = incident.sites.filter((site) => site.status === "live");
+    expect(siteCounts().live).toBe(live.length);
+  });
 });
