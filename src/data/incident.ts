@@ -7,10 +7,10 @@ export type Site = {
 };
 
 export const incident = {
-  lastReviewed: "2026-08-17",
+  lastReviewed: "2026-08-24",
 
   figures: {
-    sitesOnOneAccount: 29,
+    sitesOnOneAccount: 17,
     companyAgeYears: 30,
     otherAccountsTargeted: 1_190,
     maliciousLinksAtArchive: 583_299,
@@ -39,22 +39,29 @@ export const incident = {
     },
     { when: "14 August 2026", what: "First site rebuilt on isolated hosting." },
     { when: "16 August 2026", what: "Four sites live on the new host." },
+    {
+      when: "21 August 2026",
+      what: "Nine of eleven rebuilt sites live; the estate-wide functional sweep begins.",
+    },
+    {
+      when: "24 August 2026",
+      what: "All eleven rebuilt sites live with valid HTTPS; the final migrated mail route is verified.",
+    },
   ],
 
   sites: [
-    { id: "Client A", status: "live", note: "Rebuilt and verified." },
-    { id: "Client B", status: "live", note: "Rebuilt and verified." },
-    { id: "Client C", status: "live", note: "Rebuilt and verified." },
-    { id: "Client D", status: "live", note: "Rebuilt and verified. Mail moved." },
-    { id: "Client E", status: "built", note: "Rebuilt and verified; awaiting a domain change." },
-    { id: "Client F", status: "built", note: "Rebuilt and verified; awaiting a domain change." },
-    {
-      id: "Client G",
-      status: "todo",
-      note: "No surviving copy. Rebuild by hand from public archive captures.",
-    },
-    { id: "Client H", status: "todo", note: "Scope unresolved." },
-  ] satisfies Site[],
+    { id: "Client A", status: "live", note: "Rebuilt, verified, and live." },
+    { id: "Client B", status: "live", note: "Rebuilt, verified, and live." },
+    { id: "Client C", status: "live", note: "Rebuilt, verified, and live." },
+    { id: "Client D", status: "live", note: "Rebuilt and live; mail restored and tested." },
+    { id: "Client E", status: "live", note: "Rebuilt from surviving content and verified." },
+    { id: "Client F", status: "live", note: "Recovered from an isolated archive and verified." },
+    { id: "Client G", status: "live", note: "Reconstructed from public captures and verified." },
+    { id: "Client H", status: "live", note: "Rebuilt, functionally audited, and live." },
+    { id: "Client I", status: "live", note: "Rebuilt, functionally audited, and live." },
+    { id: "Client J", status: "live", note: "Rebuilt, functionally audited, and live." },
+    { id: "Client K", status: "live", note: "Rebuilt; web and mail paths verified." },
+  ] as Site[],
 } as const;
 
 export function siteCounts() {

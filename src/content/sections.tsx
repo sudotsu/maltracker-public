@@ -18,7 +18,7 @@ export function SectionOne() {
         <span>Reviewed {incident.lastReviewed}</span>
       </div>
       <p className="eyebrow">01 · What it was</p>
-      <h1 id="story-title">One account, twenty-nine businesses.</h1>
+      <h1 id="story-title">One account, seventeen websites.</h1>
       <p className="standfirst">
         An Omaha web development company had kept every client site together in one hosting
         account. One break-in could reach all of them.
@@ -179,7 +179,7 @@ export function SectionFive() {
           <span className="decision-mark" aria-hidden="true">×</span>
           <h3>Pay {`$${format(figures.quotedCleanupPerSite)}`} per site</h3>
           <p>
-            That removed symptoms without fixing why one break-in reached twenty-nine sites.
+            That removed symptoms without fixing why one break-in reached seventeen sites.
           </p>
         </article>
         <article className="decision-chosen">
@@ -304,14 +304,17 @@ export function SectionNine() {
     <Section eyebrow="09 · Unfinished work" title="What is still open.">
       <ul className="open-list">
         <li>
-          <span>Sites</span>
-          <p>Two client sites are not yet rebuilt.</p>
+          <span>Infrastructure</span>
+          <p>
+            Four live domains still depend on the legacy provider’s nameservers as a temporary
+            bridge. Their delegations must move before that account can be closed.
+          </p>
         </li>
         <li>
           <span>Email</span>
           <p>
-            A set of email accounts was created on the compromised server during the attack.
-            Their passwords are unknown.
+            The migrated mail paths work. Remaining legacy mailboxes and forwarders still need
+            a final business-owner audit before shutdown.
           </p>
         </li>
         <li>
@@ -322,8 +325,15 @@ export function SectionNine() {
           </p>
         </li>
         <li>
-          <span>Recovery</span>
-          <p>It is still unclear whether one client’s site can be recovered at all.</p>
+          <span>Evidence</span>
+          <p>The master evidence archive still needs a second verified storage copy.</p>
+        </li>
+        <li>
+          <span>Search</span>
+          <p>
+            Search ownership, attacker-submitted indexing, and removal status still need an
+            account-side review.
+          </p>
         </li>
       </ul>
       <p className="closing-note">
