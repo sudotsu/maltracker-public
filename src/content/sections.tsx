@@ -1,6 +1,7 @@
 import { FigureBlock } from "@/components/figure-block";
 import { Section } from "@/components/section";
 import { incident, siteCounts } from "@/data/incident";
+import { publicSite } from "@/data/public-site";
 
 const number = new Intl.NumberFormat("en-US");
 
@@ -14,27 +15,27 @@ export function SectionOne() {
   return (
     <section className="section hero" aria-labelledby="story-title">
       <div className="hero-kicker">
-        <span>Incident account</span>
+        <span>Public incident case study</span>
         <span>Reviewed {incident.lastReviewed}</span>
       </div>
       <p className="eyebrow">01 · What it was</p>
       <h1 id="story-title">One account, seventeen websites.</h1>
       <p className="standfirst">
-        An Omaha web development company had kept every client site together in one hosting
-        account. One break-in could reach all of them.
+        A long-running web development company had kept every client site together in one
+        hosting account. One break-in could reach all of them.
       </p>
       <p className="identity-note">
-        This is a real incident involving real companies and real money. Identities and
-        infrastructure details have been removed.
+        This is an anonymized account of a real incident involving real companies and real
+        money. Direct identifiers and sensitive infrastructure details have been removed.
       </p>
-      <div className="figure-grid figure-grid-two" aria-label="Incident scale">
+      <div className="figure-grid figure-grid-two" role="group" aria-label="Incident scale">
         <FigureBlock
           value={format(figures.sitesOnOneAccount)}
           label="client sites shared one account"
         />
         <FigureBlock
-          value={`≈${format(figures.companyAgeYears)}`}
-          label="years in business"
+          value="Decades"
+          label="in business before the incident"
           sub="A long history did not make the setup safe."
         />
       </div>
@@ -56,7 +57,7 @@ export function SectionTwo() {
         Casino pages were the visible mess. Underneath, the account had become a machine for
         finding database passwords belonging to other customers of the same hosting company.
       </p>
-      <div className="figure-grid figure-grid-feature" aria-label="Attack scale">
+      <div className="figure-grid figure-grid-feature" role="group" aria-label="Attack scale">
         <FigureBlock
           value={format(figures.otherAccountsTargeted)}
           label="other customer accounts targeted"
@@ -94,7 +95,7 @@ export function SectionThree() {
         Two snapshots, taken {figures.doublingWindowHours} hours apart, showed the footprint
         growing while the response was already under way.
       </p>
-      <div className="comparison" aria-label="Growth over 28 hours">
+      <div className="comparison" role="group" aria-label="Growth over 28 hours">
         <div className="comparison-row">
           <span>Malicious links</span>
           <strong>{format(figures.maliciousLinksAtArchive)}</strong>
@@ -130,9 +131,9 @@ export function SectionFour() {
     <Section eyebrow="04 · The eviction" title="One line stopped it.">
       <div className="split-intro">
         <p className="prose lead">
-          One account-wide rule denied the web server permission to run any program file. The
-          attacker’s only tool was running code through that server. The rule removed both
-          their access and their ability to undo the rule.
+          One account-wide rule denied the web server permission to run program files. Every
+          confirmed active attacker request depended on code running through that server, so
+          the rule stopped the observed execution route immediately.
         </p>
         <FigureBlock
           value={format(figures.successfulAttackerRequestsInOneDay)}
@@ -141,9 +142,9 @@ export function SectionFour() {
         />
       </div>
       <p className="prose">
-        Every password, access key, and control-panel credential was changed in the same
-        window. Nothing on the old server was deleted. The malicious files stayed in place as
-        inert evidence.
+        Known hosting passwords and control-panel credentials were rotated, and the account’s
+        SSH and FTP access paths were removed in the same window. Nothing on the old server was
+        deleted. The malicious files stayed in place as inert evidence.
       </p>
       <ol className="timeline" aria-label="Incident timeline">
         {incident.timeline.map((event) => (
@@ -280,7 +281,7 @@ export function SectionEight() {
 
   return (
     <Section eyebrow="08 · Current status" title="Where it stands.">
-      <div className="scoreboard" aria-label="Rebuild totals">
+      <div className="scoreboard" role="group" aria-label="Rebuild totals">
         <div><strong>{counts.live}</strong><span>live</span></div>
         <div><strong>{counts.built}</strong><span>built</span></div>
         <div><strong>{counts.todo}</strong><span>to do</span></div>
@@ -340,6 +341,16 @@ export function SectionNine() {
         Last reviewed <time>{incident.lastReviewed}</time>. This record will change when the
         evidence does.
       </p>
+      <footer className="case-study-footer">
+        <p>
+          Containment, investigation, reconstruction, and this public account by{" "}
+          <a href={publicSite.responder.url}>{publicSite.responder.name}</a>.
+        </p>
+        <nav className="case-study-links" aria-label="Case study links">
+          <a href={publicSite.responder.url}>Contact the responder</a>
+          <a href={publicSite.repositoryUrl}>Inspect the source</a>
+        </nav>
+      </footer>
     </Section>
   );
 }

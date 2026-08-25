@@ -37,4 +37,14 @@ describe("incident data", () => {
     expect(incident.figures.sitesOnOneAccount).toBe(17);
     expect(siteCounts()).toEqual({ live: 11, built: 0, todo: 0 });
   });
+
+  it("describes the earliest confirmed activity without claiming the entry route is known", () => {
+    expect(incident.timeline[0]).toEqual({
+      when: "14 October 2025",
+      what: expect.stringMatching(/earliest confirmed.*entry route remains unproven/i),
+    });
+    expect(incident.timeline.map((event) => event.what).join(" ")).not.toMatch(
+      /intrusion begins|every credential rotated|the attacker is out/i,
+    );
+  });
 });

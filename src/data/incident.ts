@@ -11,7 +11,6 @@ export const incident = {
 
   figures: {
     sitesOnOneAccount: 17,
-    companyAgeYears: 30,
     otherAccountsTargeted: 1_190,
     maliciousLinksAtArchive: 583_299,
     maliciousLinksLive: 1_177_495,
@@ -28,14 +27,17 @@ export const incident = {
   },
 
   timeline: [
-    { when: "December 2025", what: "Intrusion begins. Nobody notices." },
+    {
+      when: "14 October 2025",
+      what: "Earliest confirmed attacker-controlled session. The original entry route remains unproven.",
+    },
     {
       when: "9 August 2026",
       what: "The hosting company’s own scanner reports 62,877 infected files. It offers a paid cleanup.",
     },
     {
       when: "13 August 2026",
-      what: "Execution denied account-wide. Every credential rotated. The attacker is out.",
+      what: "Web execution denied account-wide and all known hosting access routes closed. No later attacker execution has been observed.",
     },
     { when: "14 August 2026", what: "First site rebuilt on isolated hosting." },
     { when: "16 August 2026", what: "Four sites live on the new host." },

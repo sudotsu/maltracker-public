@@ -62,6 +62,22 @@ body {
   background: var(--signal);
 }
 
+a {
+  color: var(--signal-deep);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--signal);
+}
+
+a:focus-visible {
+  outline: 0.2rem solid var(--signal);
+  outline-offset: 0.25rem;
+  border-radius: 0.1rem;
+}
+
 .page {
   width: var(--page);
   margin-inline: auto;
@@ -503,6 +519,57 @@ h3 {
   font-size: clamp(1.25rem, 2.5vw, 1.7rem);
 }
 
+.case-study-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--line-strong);
+}
+
+.case-study-footer p {
+  max-width: 42ch;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  line-height: 1.4;
+}
+
+.case-study-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.case-study-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.case-study-links a:first-child {
+  color: var(--paper-raised);
+  border-color: var(--signal);
+  background: var(--signal);
+}
+
+.case-study-links a:hover {
+  border-color: var(--signal);
+}
+
+.case-study-links a:first-child:hover {
+  background: var(--signal-deep);
+}
+
 @media (max-width: 50rem) {
   .figure-grid,
   .figure-grid-feature,
@@ -514,9 +581,15 @@ h3 {
   .plain-callout,
   .timeline li,
   .findings article,
-  .open-list li {
+  .open-list li,
+  .case-study-footer {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .case-study-links {
+    justify-content: flex-start;
+    margin-top: 1.25rem;
   }
 
   .comparison-row {
